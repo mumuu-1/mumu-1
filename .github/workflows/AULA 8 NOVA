@@ -1,0 +1,34 @@
+# Este é um fluxo de trabalho básico para ajudar você a começar com ações
+
+name: CI
+
+# Controla quando o fluxo de trabalho será executado
+on:
+  # Aciona o fluxo de trabalho em eventos de push ou pull request para o branch "principal"
+  push:
+    branches: [ "principal" ]
+  pull_request:
+    branches: [ "principal" ]
+
+  # Permite execução manual pela aba "Actions"
+  workflow_dispatch:
+
+# Definição dos jobs
+jobs:
+  build:
+    # Define o ambiente do runner
+    runs-on: ubuntu-latest
+
+    steps:
+      # Faz check-out do código do repositório
+      - uses: actions/checkout@v3
+
+      # Executa um comando simples
+      - name: Executa um script de uma linha
+        run: echo Olá, mundo!
+
+      # Executa múltiplos comandos
+      - name: Executa um script multi-linha
+        run: |
+          echo Adicionar outras ações para construir,
+          echo testar e implantar seu projeto.
